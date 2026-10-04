@@ -219,8 +219,10 @@ def load_transcript_file(path: str | Path, meeting_id: str | None = None) -> dic
             raise ValueError(f"Unrecognised JSON transcript format: {path}")
     else:
         from .preprocessing import parse_transcript_text
-        turns = [t.to_dict() for t in
-                 parse_transcript_text(path.read_text(encoding="utf-8"), mid)]
+        body = "\n".join(line for line in
+                         path.read_text(encoding="utf-8").splitlines()
+                         if not line.lstrip().startswith("#"))   # drop comment lines
+        turns = [t.to_dict() for t in parse_transcript_text(body, mid)]
     speakers = []
     for t in turns:
         if t["speaker"] not in speakers:

@@ -26,6 +26,14 @@ DEFAULT_MODEL = "sshleifer/distilbart-cnn-12-6"
 _MODEL_CACHE: dict = {}
 
 
+def _polish(text: str) -> str:
+    """Clean generator artefacts: spaces before punctuation ('yesterday .') and
+    doubled spaces. Never alters wording — only whitespace/punctuation spacing."""
+    text = re.sub(r"\s+([,.;:!?])", r"\1", text or "")
+    text = re.sub(r"([.!?]){2,}", r"\1", text)
+    return re.sub(r" {2,}", " ", text).strip()
+
+
 class HierarchicalSummarizer:
     def __init__(self, model_name: str = DEFAULT_MODEL, device: str = "cpu",
                  max_input_tokens: int = 1000,
@@ -110,7 +118,7 @@ class HierarchicalSummarizer:
             _MODEL_CACHE.pop(self.model_name, None)
             self.device, self._pipe = "cpu", None
             out = self.pipe(text, **kwargs, batch_size=1)
-        return (out[0]["summary_text"] or "").strip()
+        return _polish((out[0]["summary_text"] or "").strip())
 
     # ------------------------------------------------------------------ hierarchy
     def summarize_chunks(self, chunks: Sequence[Chunk]) -> list[dict]:
@@ -171,7 +179,7 @@ class HierarchicalSummarizer:
         Falls back to 'Not specified' when nothing is available (never invented)."""
         from .preprocessing import sentencize
         points: list[str] = []
-        for s in sentencize(text or ""):
+        for s in sentencize(_polish(text or "")):
             s = s.strip().lstrip("-*").strip()
             if len(s) < 15:
                 continue
