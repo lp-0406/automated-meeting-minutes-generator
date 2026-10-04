@@ -4,8 +4,11 @@ A college-level NLP mini project that turns a meeting recording (or transcript) 
 minutes: executive summary, key discussion points, decisions, action items (owner, deadline) and follow-ups.
 It uses only free, open-source pretrained models and is designed to run on a free Colab GPU (with CPU fallback).
 
-> **Status: Phase 1 of 10 complete (repository and environment).** Nothing has been evaluated yet; this
-> README contains **no results**. Results appear only after experiments are run (see *Results*).
+> **Status: Phases 1–7 of 10 complete** (environment, dataset discovery + download,
+> preprocessing/chunking, Whisper ASR, summarisation, extraction, baselines) **plus unit tests,
+> evaluation harness, notebooks and demo.** Dataset discovery results are recorded in `data/README.md`.
+> Experimental results appear only after experiments run: until files exist in `outputs/metrics/`,
+> every performance claim in this repo reads **"Not yet evaluated."**
 
 ## Overview
 Pipeline: Audio → Whisper → transcript → preprocessing → turn handling → chunking → DistilBERT sentence

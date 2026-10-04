@@ -4,6 +4,9 @@ data/processed/*
 data/samples/*
 !data/**/.gitkeep
 !data/README.md
+# Tiny synthetic text samples + hand labels are safe to commit; audio never is.
+!data/samples/*.txt
+!data/samples/*.json
 *.wav
 *.mp3
 *.m4a
@@ -49,3 +52,6 @@ hf_token*
 credentials*.json
 *.key
 .DS_Store
+
+# Editor / agent tooling
+.freebuff/
