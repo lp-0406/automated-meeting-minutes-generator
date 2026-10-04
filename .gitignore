@@ -1,0 +1,51 @@
+# Data (never commit datasets or recordings)
+data/raw/*
+data/processed/*
+data/samples/*
+!data/**/.gitkeep
+!data/README.md
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.mp4
+
+# Models, checkpoints and caches
+models/*
+!models/README.md
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+.cache/
+hf_cache/
+whisper_cache/
+
+# Generated outputs (keep folder skeleton and small result files only)
+outputs/transcripts/*
+outputs/summaries/*
+outputs/minutes/*
+outputs/logs/*
+outputs/figures/*
+!outputs/**/.gitkeep
+!outputs/metrics/results.csv
+!outputs/metrics/results.json
+
+# Python / notebooks
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Secrets and local env
+.env
+*.env
+.huggingface/
+hf_token*
+credentials*.json
+*.key
+.DS_Store

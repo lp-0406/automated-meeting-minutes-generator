@@ -1,0 +1,26 @@
+# Core requirements. On Google Colab, torch/numpy/pandas/scikit-learn/matplotlib are
+# preinstalled: do NOT reinstall or pin them there (it can break the runtime).
+# Locally, install torch first from https://pytorch.org (CPU or CUDA build).
+torch
+transformers
+datasets
+accelerate
+sentencepiece
+evaluate
+rouge_score
+bert_score
+scikit-learn
+pandas
+numpy
+spacy
+nltk
+jiwer
+openai-whisper
+matplotlib
+pyyaml
+tqdm
+# Dev / tests
+pytest
+nbformat
+# The spaCy English model is installed separately:
+#   python -m spacy download en_core_web_sm
