@@ -1,0 +1,27 @@
+# Sample synthetic meeting transcript (demo input).
+# All names and content are invented for demonstration — no real people or meetings.
+# Format: optional [start-end] timestamps, then "Speaker: text".
+[00:00 - 00:12] Alice: Good morning everyone, thanks for joining the sprint planning session.
+[00:12 - 00:31] Alice: Let's start with the launch status. The beta build passed all smoke tests yesterday.
+[00:31 - 00:47] Bob: Great. From engineering side, the new login API is done, but we still have um a problem with rate limiting.
+[00:47 - 01:05] Carol: Design has handed over the final mockups for the dashboard. We agreed that the sidebar navigation stays as is.
+[01:05 - 01:22] Alice: Okay, so we decided to keep the sidebar navigation. That question is closed.
+[01:22 - 01:40] Bob: I will fix the rate limiting bug by Friday. It should not block the rest of the release.
+[01:40 - 01:58] David: Marketing needs the final feature list for the launch blog post. Can you please send it to me by Wednesday?
+[01:58 - 02:15] Alice: Yes, I will send the feature list by Wednesday.
+[02:15 - 02:35] Carol: We should review the pricing page copy one more time before launch. The current version mentions a discount we no longer offer.
+[02:35 - 02:52] Alice: Agreed. We approved the new pricing text last week, so please just remove the old discount line.
+[02:52 - 03:10] David: One more thing, the customer webinar got moved. We need to follow up with the invites.
+[03:10 - 03:28] Bob: The analytics dashboard is still very very slow. We really need to profile those queries.
+[03:28 - 03:45] Alice: Let's go with the managed database upgrade for the analytics service. It costs more, but it solves the problem.
+[03:45 - 04:02] Carol: Fine by me. Carol will update the design tokens documentation this week.
+[04:02 - 04:20] David: Support reported that export to CSV fails for large reports. Several customers complained about it.
+[04:20 - 04:38] Bob: I can reproduce it. I'll open a ticket today and we will triage it tomorrow.
+[04:38 - 04:55] Alice: Decisions so far: sidebar stays, managed database upgrade approved, pricing discount line removed.
+[04:55 - 05:15] David: We should also decide about the launch date. The current plan says the twenty-fourth of October.
+[05:15 - 05:33] Alice: We agreed to keep the launch date on October 24. Marketing should prepare the announcement.
+[05:33 - 05:50] Bob: Understood. I will share the release checklist with the team by Monday.
+[05:50 - 06:08] Carol: I need to confirm the illustration license before we publish. Leave it with me.
+[06:08 - 06:25] Alice: Great. Let's recap. Bob fixes rate limiting by Friday, Alice sends the feature list by Wednesday.
+[06:25 - 06:42] David: And the webinar invites are still pending. We can revisit that in the next meeting.
+[06:42 - 06:55] Alice: Sounds good. Thanks everyone, meeting adjourned.

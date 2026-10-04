@@ -1,0 +1,53 @@
+# Central configuration. Every experiment saves a copy of the config it ran with.
+seed: 42
+device: auto            # auto | cuda | cpu
+
+resource_policy:
+  # When device resolves to CPU (or VRAM is small), models are downgraded to the
+  # "fallback" entries below. Large models are never selected automatically.
+  auto_downgrade: true
+  low_vram_gb: 6.0
+  fallback:
+    whisper: base
+    summarization: sshleifer/distilbart-cnn-12-6
+
+whisper:
+  model: small           # tiny | base | small   (medium/large not recommended on free GPUs)
+  language: en
+  condition_on_previous_text: false
+
+summarization:
+  model: sshleifer/distilbart-cnn-12-6   # optional: facebook/bart-large-cnn (not mandatory)
+  chunk_max_tokens: 700
+  chunk_overlap_turns: 1
+  chunk_summary_max_tokens: 90
+  chunk_summary_min_tokens: 20
+  final_summary_max_tokens: 150
+  final_summary_min_tokens: 50
+
+classifier:
+  model: distilbert-base-uncased
+  labels: {0: other, 1: decision, 2: action}
+  max_length: 128
+  epochs: 3
+  batch_size: 16
+  learning_rate: 5.0e-5
+  decision_threshold: 0.6   # tune on validation meetings only
+  action_threshold: 0.6
+
+data:
+  # Subset sizes (meetings). null = use everything available.
+  smoke_test_meetings: 5
+  initial_eval_meetings: 30
+  final_eval_meetings: null   # set after the pipeline works and runtime allows
+
+paths:
+  data_raw: data/raw
+  data_processed: data/processed
+  transcripts: outputs/transcripts
+  summaries: outputs/summaries
+  minutes: outputs/minutes
+  metrics: outputs/metrics
+  figures: outputs/figures
+  logs: outputs/logs
+  models: models
